@@ -125,7 +125,7 @@ def mostrar_graficas(caso: str):
         columnas = st.columns(len(disponibles))
         for columna, (ruta, titulo) in zip(columnas, disponibles):
             with columna:
-                st.image(str(ruta), caption=titulo, use_container_width=True)
+                st.image(str(ruta), caption=titulo, width="stretch")
 
 
 tab_dolar, tab_glucosa, tab_energia = st.tabs(
