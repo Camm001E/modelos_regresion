@@ -1,0 +1,290 @@
+{
+  "nota_metodologica": "Datos validados sin borrar observaciones IQR. Métricas en conjunto de prueba; artefactos finales ajustados con la totalidad.",
+  "casos": {
+    "dolar": {
+      "auditoria": {
+        "filas_originales": 500,
+        "filas_conservadas": 500,
+        "columnas": [
+          "Dia",
+          "Inflacion",
+          "Tasa_interes",
+          "Precio_Dolar"
+        ],
+        "valores_faltantes": {
+          "Dia": 0,
+          "Inflacion": 0,
+          "Tasa_interes": 0,
+          "Precio_Dolar": 0
+        },
+        "filas_duplicadas": 0,
+        "valores_invalidos": {
+          "dias_repetidos": 0,
+          "dias_fuera_de_1_a_500": 0,
+          "precios_no_positivos": 0
+        },
+        "iqr": {
+          "Dia": {
+            "limite_inferior": -248.5,
+            "limite_superior": 749.5,
+            "registros_fuera_del_rango": 0
+          },
+          "Inflacion": {
+            "limite_inferior": 0.006470283038191738,
+            "limite_superior": 0.03321209621016323,
+            "registros_fuera_del_rango": 4
+          },
+          "Tasa_interes": {
+            "limite_inferior": 3.7674536020092324,
+            "limite_superior": 6.260521676840468,
+            "registros_fuera_del_rango": 7
+          },
+          "Precio_Dolar": {
+            "limite_inferior": 2774.3594663017343,
+            "limite_superior": 7655.760766508169,
+            "registros_fuera_del_rango": 0
+          }
+        },
+        "criterio_atipicos": "Se registran y se conservan sin alterar los datos",
+        "archivo_preparado": "preparados/dolar_validado.csv"
+      },
+      "division": {
+        "tipo": "Primeros 80 % de los días para entrenar, últimos 20 % para probar",
+        "dias_entrenamiento": [
+          1,
+          400
+        ],
+        "dias_prueba": [
+          401,
+          500
+        ],
+        "filas_entrenamiento": 400,
+        "filas_prueba": 100
+      },
+      "metricas_prueba": {
+        "R2": 0.8788301969124285,
+        "MSE": 2905.7132283732476
+      },
+      "modelo_evaluado": {
+        "intercepto": 3968.5360315017633,
+        "coeficientes": {
+          "Dia": 4.9594005775886085,
+          "Inflacion": -255.28421964754395,
+          "Tasa_interes": 0.41309605234358315
+        }
+      },
+      "impacto_una_desviacion_estandar_entrenamiento": {
+        "Dia": 573.3776326786003,
+        "Inflacion": -1.225753019367385,
+        "Tasa_interes": 0.20272872687942364
+      },
+      "mayor_impacto_absoluto": "Dia",
+      "modelo_final": {
+        "filas": 500,
+        "intercepto": 3978.984617035362,
+        "coeficientes": {
+          "Dia": 4.9990598391198775,
+          "Inflacion": -338.0597613395681,
+          "Tasa_interes": -2.5328228787944544
+        },
+        "archivo": "salidas/modelos/dolar.joblib",
+        "variables": [
+          "Dia",
+          "Inflacion",
+          "Tasa_interes"
+        ]
+      },
+      "figuras": [
+        "salidas/figuras/dolar_dia.png",
+        "salidas/figuras/dolar_inflacion.png",
+        "salidas/figuras/dolar_tasa.png"
+      ]
+    },
+    "glucosa": {
+      "auditoria": {
+        "filas_originales": 2000,
+        "filas_conservadas": 2000,
+        "columnas": [
+          "Edad",
+          "IMC",
+          "Actividad_Fisica",
+          "Nivel_Glucosa"
+        ],
+        "valores_faltantes": {
+          "Edad": 0,
+          "IMC": 0,
+          "Actividad_Fisica": 0,
+          "Nivel_Glucosa": 0
+        },
+        "filas_duplicadas": 0,
+        "valores_invalidos": {
+          "edades_negativas": 0,
+          "imc_no_positivos": 0,
+          "actividad_negativa": 0,
+          "glucosa_no_positiva": 0
+        },
+        "iqr": {
+          "Edad": {
+            "limite_inferior": -11.0,
+            "limite_superior": 109.0,
+            "registros_fuera_del_rango": 0
+          },
+          "IMC": {
+            "limite_inferior": 14.234684954745715,
+            "limite_superior": 35.86091809890148,
+            "registros_fuera_del_rango": 16
+          },
+          "Actividad_Fisica": {
+            "limite_inferior": -5.5,
+            "limite_superior": 14.5,
+            "registros_fuera_del_rango": 0
+          },
+          "Nivel_Glucosa": {
+            "limite_inferior": 58.85622663204963,
+            "limite_superior": 219.4198439524231,
+            "registros_fuera_del_rango": 3
+          }
+        },
+        "criterio_atipicos": "Se registran y se conservan sin alterar los datos",
+        "archivo_preparado": "preparados/glucosa_validado.csv"
+      },
+      "division": {
+        "tipo": "Aleatoria 80/20",
+        "semilla": 17,
+        "filas_entrenamiento": 1600,
+        "filas_prueba": 400
+      },
+      "metricas_prueba": {
+        "R2": 0.7165201603342486,
+        "MSE": 220.62075779826554
+      },
+      "modelo_evaluado": {
+        "intercepto": 67.30737570871422,
+        "coeficientes": {
+          "Edad": 1.2198371853472902,
+          "IMC": 0.8483487609508699,
+          "Actividad_Fisica": -1.9594906615769543
+        }
+      },
+      "impacto_una_desviacion_estandar_entrenamiento": {
+        "Edad": 21.45860245592235,
+        "IMC": 3.3918183138630975,
+        "Actividad_Fisica": -5.68816562716289
+      },
+      "mayor_impacto_absoluto": "Edad",
+      "modelo_final": {
+        "filas": 2000,
+        "intercepto": 66.3149908298401,
+        "coeficientes": {
+          "Edad": 1.2336813789485992,
+          "IMC": 0.8832359026438173,
+          "Actividad_Fisica": -2.0103859239132387
+        },
+        "archivo": "salidas/modelos/glucosa.joblib",
+        "variables": [
+          "Edad",
+          "IMC",
+          "Actividad_Fisica"
+        ]
+      },
+      "figuras": [
+        "salidas/figuras/glucosa_edad.png",
+        "salidas/figuras/glucosa_imc.png",
+        "salidas/figuras/glucosa_actividad.png"
+      ]
+    },
+    "energia": {
+      "auditoria": {
+        "filas_originales": 10000,
+        "filas_conservadas": 10000,
+        "columnas": [
+          "Temperatura",
+          "Hora",
+          "Dia_Semana",
+          "Consumo_Energia"
+        ],
+        "valores_faltantes": {
+          "Temperatura": 0,
+          "Hora": 0,
+          "Dia_Semana": 0,
+          "Consumo_Energia": 0
+        },
+        "filas_duplicadas": 0,
+        "valores_invalidos": {
+          "horas_fuera_de_1_a_24": 0,
+          "dias_semana_fuera_de_1_a_7": 0,
+          "temperaturas_fisicamente_imposibles": 0,
+          "consumos_no_positivos": 0
+        },
+        "iqr": {
+          "Temperatura": {
+            "limite_inferior": 11.479910968646305,
+            "limite_superior": 38.40959190681646,
+            "registros_fuera_del_rango": 90
+          },
+          "Hora": {
+            "limite_inferior": -12.0,
+            "limite_superior": 36.0,
+            "registros_fuera_del_rango": 0
+          },
+          "Dia_Semana": {
+            "limite_inferior": -4.0,
+            "limite_superior": 12.0,
+            "registros_fuera_del_rango": 0
+          },
+          "Consumo_Energia": {
+            "limite_inferior": 227.137042807285,
+            "limite_superior": 572.7323313022134,
+            "registros_fuera_del_rango": 66
+          }
+        },
+        "criterio_atipicos": "Se registran y se conservan sin alterar los datos",
+        "archivo_preparado": "preparados/energia_validado.csv"
+      },
+      "division": {
+        "tipo": "Aleatoria 80/20",
+        "semilla": 17,
+        "filas_entrenamiento": 8000,
+        "filas_prueba": 2000
+      },
+      "metricas_prueba": {
+        "R2": 0.8941739369224385,
+        "RMSE": 20.38582142265379
+      },
+      "modelo_evaluado": {
+        "intercepto": 99.81547491874551,
+        "coeficientes": {
+          "Temperatura": 10.032187558534932,
+          "Hora": 5.011642986163907,
+          "Dia_Semana": -3.1127938114871747
+        }
+      },
+      "impacto_una_desviacion_estandar_entrenamiento": {
+        "Temperatura": 50.19534745233054,
+        "Hora": 34.74628917042452,
+        "Dia_Semana": -6.215165679536367
+      },
+      "mayor_impacto_absoluto": "Temperatura",
+      "modelo_final": {
+        "filas": 10000,
+        "intercepto": 101.38299006073424,
+        "coeficientes": {
+          "Temperatura": 9.965998029708874,
+          "Hora": 5.01175965422763,
+          "Dia_Semana": -3.089170180976782
+        },
+        "archivo": "salidas/modelos/energia.joblib",
+        "variables": [
+          "Temperatura",
+          "Hora",
+          "Dia_Semana"
+        ]
+      },
+      "figuras": [
+        "salidas/figuras/energia_temperatura.png",
+        "salidas/figuras/energia_hora.png",
+        "salidas/figuras/energia_semana.png"
+      ]
+    }
+  }
+}
